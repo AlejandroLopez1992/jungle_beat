@@ -44,10 +44,25 @@ RSpec.describe LinkedList do
 
     expect(list.empty?).to be(false)
   end
+
   it 'can count the elements in the linked list' do
     list = LinkedList.new
     list.append("doop")
+    list.append("doop")
+    list.append("doop")
+    list.append("doop")
+    list.append("doop")
 
-    expect(list.count).to eq(1)
+
+    expect(list.count).to eq(5)
+  end
+
+  it 'can be converted to string' do
+    list = LinkedList.new
+    list.append("doop")
+    list.append("doop")
+    list.append("doop")
+    list.append("bam")
+    expect(list.to_string).to eq("doop, doop, doop, bam")
   end
 end

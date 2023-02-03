@@ -12,12 +12,12 @@ class LinkedList
     if self.empty?
       @head = Node.new(beat)
     else
-      current_node = @head
+      active_node = @head
       new_node = Node.new(beat)
-      while current_node.next_node != nil  
-        current_node = current_node.next
+      while active_node.next_node != nil  
+        active_node = active_node.next_node
       end
-      current_node.next_node = new_node
+      active_node.next_node = new_node
     end
   end
   
@@ -36,11 +36,29 @@ class LinkedList
       count = 1
       active_node = @head
       while active_node.next_node != nil
-        active_node = current_node.next
+        active_node = active_node.next_node
         count += 1
       end
     end
     count
   end
+
+  def to_string
+    full_list = []
+    if self.empty?
+      return "I'm empty"
+    else
+      active_node = @head
+      full_list << active_node.data
+      while active_node.next_node != nil
+        active_node = active_node.next_node
+          full_list << active_node.data
+        end
+      end
+      full_list.each do |data|
+        active_node.data
+      end
+      full_list.join(', ')
+    end
 
 end
