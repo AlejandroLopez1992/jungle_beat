@@ -76,4 +76,17 @@ RSpec.describe LinkedList do
     expect(list.to_string).to eq("doo, pop, doop, bam")
     expect(list.count).to eq(4)
   end
+
+  it 'has an insert method' do
+    list = LinkedList.new
+    list.append("doop")
+    list.append("bam")
+    list.prepend("pop")
+    list.prepend("doo")
+    list.insert(5, "phop")
+
+
+    expect(list.to_string).to eq("doo, pop, phop, doop, bam")
+    expect(list.count).to eq(5)
+  end
 end

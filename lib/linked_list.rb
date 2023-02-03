@@ -50,25 +50,43 @@ class LinkedList
     else
       active_node = @head
       full_list << active_node.data
-      while active_node.next_node != nil
+    while active_node.next_node != nil
         active_node = active_node.next_node
           full_list << active_node.data
-        end
       end
+    end
       # full_list.each do |data|
       #   active_node.data
       # end
       full_list.join(', ')
-    end
+  end
 
-    def prepend(beat)
-      if self.empty?
+  def prepend(beat)
+    if self.empty?
       @head = Node.new(beat)
     else
       original_head = @head
       @head = Node.new(beat)
       new_head = @head
       new_head.next_node = original_head
+    end
+  end
+
+  def insert(position, beat)
+    if self.empty?
+      return "I'm empty, use append or prepend instead"
+    else
+      position_count = 1
+      previous_node = @head
+      next_node = previous_node.next_node
+    until position_count == position
+      previous_node = previous_node.next_node
+      next_node = previous_node.next_node
+      position_count += 1
+    end
+      inserted_node  = Node.new(beat)
+      previous_node.next_node = inserted_node
+      inserted_node.next_node = next_node
     end
   end
 end
