@@ -1,5 +1,5 @@
 require 'rspec'
-require "./lib/node"
+require './lib/node'
 
 RSpec.describe Node do
 
