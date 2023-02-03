@@ -65,4 +65,15 @@ RSpec.describe LinkedList do
     list.append("bam")
     expect(list.to_string).to eq("doop, doop, doop, bam")
   end
+
+  it 'has a prepend method' do
+    list = LinkedList.new
+    list.append("doop")
+    list.append("bam")
+    list.prepend("pop")
+    list.prepend("doo")
+
+    expect(list.to_string).to eq("doo, pop, doop, bam")
+    expect(list.count).to eq(4)
+  end
 end

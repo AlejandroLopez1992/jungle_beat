@@ -55,10 +55,20 @@ class LinkedList
           full_list << active_node.data
         end
       end
-      full_list.each do |data|
-        active_node.data
-      end
+      # full_list.each do |data|
+      #   active_node.data
+      # end
       full_list.join(', ')
     end
 
+    def prepend(beat)
+      if self.empty?
+      @head = Node.new(beat)
+    else
+      original_head = @head
+      @head = Node.new(beat)
+      new_head = @head
+      new_head.next_node = original_head
+    end
+  end
 end
