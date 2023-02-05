@@ -135,4 +135,47 @@ RSpec.describe LinkedList do
 
     expect(list.insert(6 , "phop")).to eq("Error, given index position is > than nodes in list")
   end
+
+  it 'find method works as intended' do
+    list = LinkedList.new
+    list.append("doop")
+    list.append("bam")
+    list.prepend("pop")
+    list.prepend("doop")
+    list.insert(2 , "phop")
+
+    expect(list.to_string).to eq("doop, pop, phop, doop, bam")
+    expect(list.find("doop", 2).to eq("doop, doop"))
+    expect(list.find("pop", 1)).to eq("pop")
+  end
+
+  it 'find provides available elements if requested > elements in list' do
+    list = LinkedList.new
+    list.append("doop")
+    list.append("bam")
+    list.prepend("pop")
+    list.prepend("doop")
+    list.insert(2, "phop")
+
+    expect(list.to_string).to eq("doop, pop, phop, doop, bam")
+    expect(list.find("doop", 4).to eq("doop, doop"))
+    expect(list.find("pop", 3)).to eq("pop")
+  end
+
+  it 'find provides feedback if list is empty' do
+    list = LinkedList.new
+
+    expect(list.find("pop", 1)).to eq("List is empty")
+  end
+
+  it 'find provides feedback if element is not in list' do
+    list = LinkedList.new
+    list.append("doop")
+    list.append("bam")
+    list.prepend("pop")
+    list.prepend("doop")
+
+    expect(list.to_string).to eq("doop, pop, doop, bam")
+    expect(list.find("phop", 2)).to eq("No element in list")
+  end
 end
