@@ -95,4 +95,26 @@ class LinkedList
       inserted_node.next_node = next_node
     end
   end
+
+  def find(beat, amount)
+    if self.empty?
+      return "List is empty"
+    elsif 
+      self.include?(beat) == false
+      return "No element in list"
+
+    end
+  end
+
+  def include?(beat)
+    active_node = @head
+    while active_node.next_node != nil
+      active_node = active_node.next_node
+      if active_node.data == beat
+    return true
+      else 
+    return false
+      end
+    end
+  end
 end
