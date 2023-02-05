@@ -24,6 +24,15 @@ RSpec.describe LinkedList do
     expect(list.append("doop")).to be_instance_of(Node)
   end
 
+  it 'append method works as intended' do 
+    list = LinkedList.new
+    list.append("doop")
+    list.append("bop")
+
+    expect(list.count).to eq(2)
+    expect(list.to_string).to eq("doop, bop")
+  end
+
   it "has nil value at tail" do
     list = LinkedList.new
     list.append("doop")
@@ -38,7 +47,7 @@ RSpec.describe LinkedList do
     expect(list.empty?).to be(true)
   end
 
-  it 'is empty? round 2' do
+  it 'is empty? is false if list has elements' do
     list = LinkedList.new
     list.append("doop")
 
@@ -55,6 +64,12 @@ RSpec.describe LinkedList do
 
 
     expect(list.count).to eq(5)
+  end
+
+  it 'count provides 0 if no objects are in list' do
+    list = LinkedList.new
+
+    expect(list.count).to eq(0)
   end
 
   it 'can be converted to string' do
@@ -77,16 +92,47 @@ RSpec.describe LinkedList do
     expect(list.count).to eq(4)
   end
 
+  it 'prepend works with first object inserted' do
+    list = LinkedList.new
+    list.prepend("bop")
+
+    expect(list.to_string).to eq("bop")
+  end
+
   it 'has an insert method' do
     list = LinkedList.new
     list.append("doop")
     list.append("bam")
     list.prepend("pop")
     list.prepend("doo")
-    list.insert(5, "phop")
+    list.insert(2 , "phop")
 
 
     expect(list.to_string).to eq("doo, pop, phop, doop, bam")
     expect(list.count).to eq(5)
+  end
+
+  it 'insert does not work if no objects are in list' do
+    list = LinkedList.new
+
+    expect(list.insert(1, "zoom")).to eq("I'm empty, use append or prepend instead")
+  end
+
+  it 'insert works with index position 0' do
+    list = LinkedList.new
+    list.append("doop")
+    list.append("bam")
+    list.insert(0 , "phop")
+
+    expect(list.to_string).to eq("phop, doop, bam")
+    expect(list.count).to eq(3)
+  end
+
+  it 'insert gives feedback if index given is > elements in list' do
+    list = LinkedList.new
+    list.append("doop")
+    list.append("bam")
+
+    expect(list.insert(6 , "phop")).to eq("Error, given index position is > than nodes in list")
   end
 end

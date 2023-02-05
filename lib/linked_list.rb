@@ -75,6 +75,12 @@ class LinkedList
   def insert(position, beat)
     if self.empty?
       return "I'm empty, use append or prepend instead"
+    elsif
+     position == 0
+     self.prepend(beat)
+    elsif
+      position > self.count
+      return "Error, given index position is > than nodes in list"
     else
       position_count = 1
       previous_node = @head
