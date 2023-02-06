@@ -99,18 +99,33 @@ class LinkedList
   def find(beat, amount)
     if self.empty?
       return "List is empty"
-    elsif 
-      self.include?(beat) == false
-      return "No element in list"
-
+    # elsif 
+    #   item = beat
+    #   self.include?(item) == false
+    #   return "Element not found in list"
+    elsif
+      amount == 0
+      return "Requested no elements"
+    else
+      requested_list = []
+      position_count = 1
+      active_node = @head
+    if active_node.data == beat
+      requested_list << active_node.data
+    end
+    until position_count == amount && active_node.next_node != nil
+      active_node = active_node.next_node
+      position_count += 1
     end
   end
+    requested_list.join(', ')
+  end
 
-  def include?(beat)
+  def include?(item)
     active_node = @head
     while active_node.next_node != nil
       active_node = active_node.next_node
-      if active_node.data == beat
+      if active_node.data == item
     return true
       else 
     return false
