@@ -123,8 +123,6 @@ class LinkedList
     #     # end
     # end
   end
-    requested_list.join(', ')
-  end
 
   def include?(item)
     active_node = @head

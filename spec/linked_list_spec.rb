@@ -142,52 +142,11 @@ RSpec.describe LinkedList do
     list.append("bam")
     list.prepend("pop")
     list.prepend("doop")
-    list.insert(2 , "phop")
+    list.prepend("bop")
 
-    expect(list.to_string).to eq("doop, pop, phop, doop, bam")
-    expect(list.find("doop", 2)).to eq("doop, doop")
-    expect(list.find("pop", 1)).to eq("pop")
-  end
-
-  it 'find provides available elements if requested > elements in list' do
-    list = LinkedList.new
-    list.append("doop")
-    list.append("bam")
-    list.prepend("pop")
-    list.prepend("doop")
-    list.insert(2, "phop")
-
-    expect(list.to_string).to eq("doop, pop, phop, doop, bam")
-    expect(list.find("doop", 4)).to eq("doop, doop")
-    expect(list.find("pop", 3)).to eq("pop")
-  end
-
-  it 'find does not provide elements if amount == 0' do
-    list = LinkedList.new
-    list.append("doop")
-    list.append("bam")
-    list.prepend("pop")
-    list.prepend("doop")
-
-    expect(list.to_string).to eq("doop, pop, doop, bam")
-    expect(list.find("doop", 0)).to eq("Requested no elements")
-  end
-
-  it 'find provides feedback if list is empty' do
-    list = LinkedList.new
-
-    expect(list.find("pop", 1)).to eq("List is empty")
-  end
-
-  it 'find provides feedback if element is not in list' do
-    list = LinkedList.new
-    list.append("doop")
-    list.append("bam")
-    list.prepend("pop")
-    list.prepend("doop")
-
-    expect(list.to_string).to eq("doop, pop, doop, bam")
-    expect(list.find("phop", 2)).to eq("Element not found in list")
+    expect(list.to_string).to eq("bop, doop, pop, doop, bam")
+    expect(list.find(2, 1)).to eq("pop")
+    expect(list.find(1, 3)).to eq("doop, pop, doop")
   end
 
   it 'include? works as intended' do
