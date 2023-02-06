@@ -103,6 +103,9 @@ class LinkedList
     beats_count = 0
     if self.empty? == true
       return "Error, list is empty"
+    elsif
+      position > self.count || beats > self.count
+      return "Error, position or beats is greater than nodes in list"
     end
     until position_count == position
       active_node = active_node.next_node

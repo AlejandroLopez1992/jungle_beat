@@ -156,7 +156,14 @@ RSpec.describe LinkedList do
     expect(list.find(0, 1)).to eq("Error, list is empty")
   end
 
-  it
+  it 'find method returns error if element for position or beats is > list size' do
+    list = LinkedList.new
+    list.append("doop")
+    list.append("bam")
+
+    expect(list.find(3,1)).to eq("Error, position or beats is greater than nodes in list")
+    expect(list.find(0,5)).to eq("Error, position or beats is greater than nodes in list")
+  end
 
   it 'include? works as intended' do
     list = LinkedList.new
