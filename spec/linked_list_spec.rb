@@ -176,4 +176,17 @@ RSpec.describe LinkedList do
     expect(list.include?("zing")).to eq(false)
     expect(list.include?("pop")).to eq(true)
   end
+
+  it 'pop method works as intended' do
+    list = LinkedList.new
+    list.append("doop")
+    list.append("bam")
+    list.prepend("pop")
+    list.prepend("doop")
+
+    expect(list.to_string).to eq("doop, pop, doop, bam")
+    expect(list.pop).to eq("bam")
+    expect(list.pop).to eq("doop")
+  end
+
 end
