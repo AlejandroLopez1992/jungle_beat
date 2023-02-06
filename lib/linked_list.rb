@@ -101,11 +101,14 @@ class LinkedList
     active_node = @head
     position_count = 0
     beats_count = 0
+    if self.empty? == true
+      return "Error, list is empty"
+    end
     until position_count == position
       active_node = active_node.next_node
       position_count += 1
     end
-      until beats_count == beats
+    until beats_count == beats
         requested_list << active_node.data
         active_node = active_node.next_node
         beats_count += 1

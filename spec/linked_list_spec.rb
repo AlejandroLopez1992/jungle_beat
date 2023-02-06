@@ -147,7 +147,16 @@ RSpec.describe LinkedList do
     expect(list.to_string).to eq("bop, doop, pop, doop, bam")
     expect(list.find(2, 1)).to eq("pop")
     expect(list.find(1, 3)).to eq("doop, pop, doop")
+    expect(list.find(0, 4)).to eq("bop, doop, pop, doop")
   end
+
+  it 'find method returns error if list is empty' do
+    list = LinkedList.new
+
+    expect(list.find(0, 1)).to eq("Error, list is empty")
+  end
+
+  it
 
   it 'include? works as intended' do
     list = LinkedList.new
