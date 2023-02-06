@@ -162,7 +162,7 @@ RSpec.describe LinkedList do
     expect(list.find("pop", 3)).to eq("pop")
   end
 
-  it 'Find does not provide elements if amount == 0' do
+  it 'find does not provide elements if amount == 0' do
     list = LinkedList.new
     list.append("doop")
     list.append("bam")
