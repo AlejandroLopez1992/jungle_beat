@@ -25,8 +25,10 @@ RSpec.describe JungleBeat do
 
   it 'JungleBeat instance splits the string into different nodes' do
     jb = JungleBeat.new
-    jb.append("deep, doo, ditt")
+    jb.append("deep doo ditt")
 
-    expect(jb.to_string).to eq("deep, doo, ditt")
+    expect(jb.list.head.data).to eq("deep")
+    expect(jb.list.head.next_node.data).to eq("doo")
+    # expect(jb.count).to eq(3)
   end
 end
