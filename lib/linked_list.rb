@@ -129,6 +129,9 @@ class LinkedList
   end
 
   def pop
+    if self.empty? == true
+      return "List is empty"
+    end
     returned_beat = []
     active_node = @head
     left_node = nil

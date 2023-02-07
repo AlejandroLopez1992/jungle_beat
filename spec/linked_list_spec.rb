@@ -106,6 +106,7 @@ RSpec.describe LinkedList do
     list.prepend("pop")
     list.prepend("doo")
     list.insert(2 , "phop")
+  
 
 
     expect(list.to_string).to eq("doo, pop, phop, doop, bam")
@@ -191,4 +192,9 @@ RSpec.describe LinkedList do
     expect(list.to_string).to eq("doop, pop")
   end
 
+  it 'pop method gives feedback if list is empty' do
+    list = LinkedList.new
+
+    expect(list.pop).to eq("List is empty")
+  end
 end
