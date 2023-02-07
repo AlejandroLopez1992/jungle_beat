@@ -17,5 +17,9 @@ RSpec.describe JungleBeat do
     expect(jb.list).to be_instance_of(LinkedList)
   end
 
-  it ''
+  it 'head of LinkedList instance of JungleBeat starts as nil' do
+    jb = JungleBeat.new
+    
+    expect(jb.list.head).to eq(nil)
+  end
 end
