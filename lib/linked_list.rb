@@ -55,9 +55,6 @@ class LinkedList
           full_list << active_node.data
       end
     end
-      # full_list.each do |data|
-      #   active_node.data
-      # end
       full_list.join(', ')
   end
 
@@ -129,5 +126,18 @@ class LinkedList
     return false
       end
     end
+  end
+
+  def pop
+    returned_beat = []
+    active_node = @head
+    left_node = nil
+    until active_node.next_node == nil
+      left_node = active_node
+      active_node = active_node.next_node
+    end
+      returned_beat << active_node.data
+      left_node.next_node = nil
+      returned_beat.join
   end
 end

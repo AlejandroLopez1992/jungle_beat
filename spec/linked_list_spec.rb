@@ -183,10 +183,12 @@ RSpec.describe LinkedList do
     list.append("bam")
     list.prepend("pop")
     list.prepend("doop")
+    
 
     expect(list.to_string).to eq("doop, pop, doop, bam")
     expect(list.pop).to eq("bam")
     expect(list.pop).to eq("doop")
+    expect(list.to_string).to eq("doop, pop")
   end
 
 end
