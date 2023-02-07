@@ -10,4 +10,12 @@ RSpec.describe JungleBeat do
 
     expect(jb).to be_instance_of(JungleBeat)
   end
+
+  it 'JungleBeat starts as an empty LinkedList' do
+    jb = JungleBeat.new
+
+    expect(jb.list).to be_instance_of(LinkedList)
+  end
+
+  it ''
 end

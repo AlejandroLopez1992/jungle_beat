@@ -1,9 +1,9 @@
 
 class JungleBeat
 
-  attr_accessor :linked_list
+  attr_accessor :list
 
-  def initialize(linked_List = nil)
-    @linked_list = LinkedList.new
+  def initialize(list = nil)
+    @list = LinkedList.new
   end
 end
