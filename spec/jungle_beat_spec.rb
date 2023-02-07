@@ -22,4 +22,11 @@ RSpec.describe JungleBeat do
     
     expect(jb.list.head).to eq(nil)
   end
+
+  it 'JungleBeat instance splits the string into different nodes' do
+    jb = JungleBeat.new
+    jb.append("deep, doo, ditt")
+
+    expect(jb.to_string).to eq("deep, doo, ditt")
+  end
 end
