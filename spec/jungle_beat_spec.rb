@@ -29,6 +29,16 @@ RSpec.describe JungleBeat do
 
     expect(jb.list.head.data).to eq("deep")
     expect(jb.list.head.next_node.data).to eq("doo")
-    # expect(jb.count).to eq(3)
+    expect(jb.append("woo hoo shu")).to eq("woo hoo shu")
+    expect(jb.count).to eq(6)
+  end
+
+  it 'count method for JungleBeat properly counts all appended nodes' do
+    jb = JungleBeat.new
+    jb.append("deep doo ditt") 
+    jb.append("deep doo ditt") 
+    jb.append("deep doo ditt")
+
+    expect(jb.count).to eq(9)
   end
 end

@@ -117,13 +117,15 @@ class LinkedList
   end
 
   def include?(item)
-    active_node = @head
+    active_node = @head 
     while active_node.next_node != nil
       active_node = active_node.next_node
-      if active_node.data == item
+      if active_node.data == item || @head.data == item
     return true
-      else 
-    return false
+      else
+        if active_node.next_node == nil
+          return false
+        end
       end
     end
   end

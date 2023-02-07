@@ -11,7 +11,11 @@ class JungleBeat
     sounds_array = sounds.split(' ')
     sounds_array.each do |sound|
       list.append(sound)
-      require 'pry'; binding.pry
     end
+    sounds_array.join(' ')
+  end
+
+  def count
+    list.count
   end
 end
