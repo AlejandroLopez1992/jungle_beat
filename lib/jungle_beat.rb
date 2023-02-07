@@ -18,4 +18,13 @@ class JungleBeat
   def count
     list.count
   end
+
+  def play
+    beats_to_play = list.head.data
+    active_node = list.head
+    while list.head.data != nil
+      active_node = active_node.next_node
+      `say -r 500 -v Good news #{beats_to_play}`
+    end
+  end
 end
